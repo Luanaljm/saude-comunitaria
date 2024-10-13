@@ -28,6 +28,18 @@
         p {
             line-height: 1.6;
         }
+
+        .eventos {
+            margin-top: 40px; /* Espaço acima da seção de eventos */
+            padding: 20px;
+            background-color: #f9f9f9; /* Fundo leve para destacar */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .eventos h2 {
+            color: #5a9bd4; /* Cor do título da seção de eventos */
+        }
     </style>
 </head>
 <body>
@@ -37,78 +49,283 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="informacoes.html">Informações de Saúde</a></li>
+                <li><a href="eventos.html">Agenda de Eventos</a></li> <!-- Link para a agenda de eventos -->
             </ul>
         </nav>
     </header>
 
     <section>
         <h2>Guia Rápido para Emergências</h2>
+        <p style="font-weight: bold; margin-top: 40px;">Ao final desta página, você encontrará um quiz para testar seus conhecimentos sobre primeiros socorros!</p>
 
         <article>
             <h3>Pequenos Cortes e Arranhões</h3>
-            <img src="cortes.jpg" alt="Cuidados com Cortes">
+            <img src="pele.jpg" alt="queimadura" width="500" height="400">
             <p>Lave o local com água corrente e sabão. Aplique um antisséptico e cubra o ferimento com um curativo ou gaze estéril. Mantenha o ferimento limpo e troque o curativo diariamente.</p>
         </article>
 
         <article>
             <h3>Queimaduras Leves</h3>
-            <img src="queimadura.jpg" alt="Tratamento para Queimaduras">
+            <img src="lavar.jpg" alt="lave a pele" width="500" height="400">
             <p>Resfrie a área queimada com água corrente por pelo menos 10 minutos. Não aplique gelo diretamente. Use uma pomada para queimaduras e cubra levemente com gaze esterilizada.</p>
         </article>
 
         <article>
             <h3>Torções e Entorses</h3>
-            <img src="torsao.jpg" alt="Cuidado com Torções">
+            <img src="torsao.jpg" alt="torsao" width="500" height="400">
             <p>Eleve a área afetada, aplique compressas frias e evite movimentar a região lesionada. Consulte um médico se houver dor intensa.</p>
         </article>
 
         <article>
             <h3>Hemorragias (Sangramento Intenso)</h3>
-            <img src="hemorragia.jpg" alt="Controle de Hemorragias">
+            <img src="sangue.jpg" alt="Controle de Hemorragias" width="500" height="400">
             <p>Aplique pressão direta sobre o ferimento com um pano limpo e mantenha a pressão até que o sangramento pare. Eleve a área ferida e procure ajuda médica imediatamente.</p>
         </article>
 
         <article>
             <h3>Engasgamento</h3>
-            <img src="engasgo.jpg" alt="Ação em caso de Engasgamento">
+            <img src="engasgo.jpg" alt="Ação em caso de Engasgamento" width="500" height="400">
             <p>Se a pessoa não conseguir respirar ou falar, faça a manobra de Heimlich: compressões rápidas para cima abaixo das costelas. Ligue para o serviço de emergência.</p>
         </article>
 
         <article>
             <h3>Desmaios</h3>
-            <img src="desmaio.jpg" alt="Cuidados em caso de Desmaios">
+            <img src="desmaio.jpg" alt="Cuidados em caso de Desmaios" width="500" height="400">
             <p>Deite a pessoa de costas, eleve as pernas e afrouxe as roupas. Se a pessoa não recuperar a consciência rapidamente, chame uma ambulância.</p>
         </article>
 
         <article>
             <h3>Choques Elétricos</h3>
-            <img src="choque.jpg" alt="Ação em caso de Choque Elétrico">
+            <img src="choque.jpg" alt="choque" width="500" height="400">
             <p>Desligue a fonte de energia antes de tocar na vítima. Se não estiver respirando, inicie a RCP enquanto aguarda ajuda médica.</p>
         </article>
 
         <article>
             <h3>Picadas de Insetos</h3>
-            <img src="picada.jpg" alt="Cuidados com Picadas de Insetos">
+            <img src="picada.jpg" alt="Cuidados com Picadas de Insetos" width="500" height="400">
             <p>Lave a área com água e sabão, aplique compressa fria e, se houver sinais de reação alérgica, procure atendimento médico imediatamente.</p>
         </article>
 
         <article>
             <h3>Fraturas</h3>
-            <img src="fratura.jpg" alt="Imobilização de Fraturas">
+            <img src="fratura.jpg" alt="Imobilização de Fraturas" width="500" height="400">
             <p>Evite mover a área fraturada, imobilize com uma tala e aplique gelo para reduzir o inchaço. Chame uma ambulância ou leve a pessoa ao hospital.</p>
         </article>
 
         <article>
             <h3>Parada Cardíaca</h3>
-            <img src="parada.jpg" alt="RCP em Parada Cardíaca">
+            <img src="cardiaco.jpg" alt="RCP em Parada Cardíaca" width="500" height="400">
             <p>Inicie a RCP imediatamente (30 compressões no peito seguidas de 2 ventilações) e ligue para o serviço de emergência. Continue a RCP até a chegada de ajuda.</p>
         </article>
 
+        
     </section>
 
     <footer>
         <p>© 2024 Saúde Comunitária - UBS Alves Dias</p>
     </footer>
+    <script>
+        // Seleciona todos os links do menu de navegação
+        const navLinks = document.querySelectorAll("nav ul li a");
+    
+        // Adiciona um evento de clique a cada link
+        navLinks.forEach(link => {
+            link.addEventListener("click", function() {
+                // Remove a classe 'active' de todos os links
+                navLinks.forEach(link => link.classList.remove("active"));
+                // Adiciona a classe 'active' ao link clicado
+                this.classList.add("active");
+            });
+        });
+    </script>
 
 </body>
 </html>
+<section>
+    <h2>Quiz de Primeiros Socorros</h2>
+    <div id="quiz">
+        <p id="question"></p>
+        <div id="options"></div>
+        <button id="submit">Enviar Resposta</button>
+        <div id="result" style="margin-top: 20px;"></div>
+    </div>
+</section>
+
+<script>
+    const quizData = [
+        {
+            question: "Qual é o primeiro passo a ser tomado em caso de um pequeno corte?",
+            options: [
+                "Lavar o ferimento com água e sabão",
+                "Aplique gelo diretamente no ferimento",
+                "Deixe o ferimento exposto",
+                "Coloque uma bandagem imediatamente"
+            ],
+            answer: 0 // índice da opção correta
+        },
+        {
+            question: "O que fazer em caso de queimaduras leves?",
+            options: [
+                "Colocar gelo na queimadura",
+                "Resfriar com água corrente por 10 minutos",
+                "Aplique pomada imediatamente",
+                "Cubra com papel toalha"
+            ],
+            answer: 1
+        },
+        {
+            question: "Qual é a manobra correta para ajudar alguém que está engasgado?",
+            options: [
+                "Bater nas costas",
+                "Fazer a manobra de Heimlich",
+                "Dar água",
+                "Esperar que a pessoa se acalme"
+            ],
+            answer: 1
+        },
+        {
+            question: "Qual é a ação imediata em caso de hemorragia intensa?",
+            options: [
+                "Aplique um curativo",
+                "Coloque a pessoa deitada",
+                "Aplique pressão direta no ferimento",
+                "Dê água para a vítima"
+            ],
+            answer: 2
+        },
+        {
+            question: "O que fazer se alguém desmaiar?",
+            options: [
+                "Dar um copo de água",
+                "Deitar a pessoa e elevar as pernas",
+                "Bater levemente nas bochechas",
+                "Deixar a pessoa sozinha até se recuperar"
+            ],
+            answer: 1
+        },
+        {
+            question: "Como deve ser tratada uma picada de inseto?",
+            options: [
+                "Lave a área com água e sabão",
+                "Aplique gelo diretamente",
+                "Dê um analgésico",
+                "Use um remédio caseiro"
+            ],
+            answer: 0
+        },
+        {
+            question: "Qual é a primeira coisa a se fazer em caso de choque elétrico?",
+            options: [
+                "Aproximar-se da vítima",
+                "Desligar a fonte de energia",
+                "Aplicar compressas frias",
+                "Dar água"
+            ],
+            answer: 1
+        },
+        {
+            question: "O que fazer em caso de torção?",
+            options: [
+                "Movimentar a área afetada",
+                "Aplique compressas quentes",
+                "Elevar a área afetada e aplicar gelo",
+                "Ignorar e esperar que passe"
+            ],
+            answer: 2
+        },
+        {
+            question: "Qual é a manobra de RCP?",
+            options: [
+                "30 compressões e 2 ventilações",
+                "20 compressões e 1 ventilação",
+                "5 compressões e 5 ventilações",
+                "Somente compressões"
+            ],
+            answer: 0
+        },
+        {
+            question: "Em caso de fratura, o que não deve ser feito?",
+            options: [
+                "Imobilizar a área afetada",
+                "Aplicar gelo",
+                "Mover a área fraturada",
+                "Chamar ajuda médica"
+            ],
+            answer: 2
+        },
+        {
+            question: "Qual é a melhor forma de tratar uma queimadura de terceiro grau?",
+            options: [
+                "Aplique gelo imediatamente",
+                "Cubra a queimadura com um pano limpo e seco",
+                "Use pomadas para queimadura",
+                "Deixe a queimadura exposta ao ar"
+            ],
+            answer: 1
+        },
+        {
+            question: "Como você deve agir em caso de uma parada cardíaca?",
+            options: [
+                "Aguarde a ajuda médica",
+                "Inicie a RCP e chame os serviços de emergência",
+                "Coloque a pessoa em posição lateral",
+                "Dê água à pessoa"
+            ],
+            answer: 1
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    function loadQuestion() {
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        const resultElement = document.getElementById('result');
+        
+        resultElement.innerText = ""; // Limpar resultados anteriores
+        questionElement.innerText = quizData[currentQuestion].question;
+        optionsElement.innerHTML = "";
+
+        quizData[currentQuestion].options.forEach((option, index) => {
+            const optionElement = document.createElement('div');
+            optionElement.innerHTML = `
+                <input type="radio" name="option" id="option${index}" value="${index}">
+                <label for="option${index}">${option}</label>
+            `;
+            optionsElement.appendChild(optionElement);
+        });
+    }
+
+    document.getElementById('submit').addEventListener('click', () => {
+        const selectedOption = document.querySelector('input[name="option"]:checked');
+        const resultElement = document.getElementById('result');
+
+        if (selectedOption) {
+            const answer = parseInt(selectedOption.value);
+            const isCorrect = answer === quizData[currentQuestion].answer;
+
+            // Exibir feedback ao usuário
+            if (isCorrect) {
+                score++;
+                resultElement.innerText = "Correto!";
+            } else {
+                resultElement.innerText = "Incorreto. A resposta correta era: " + quizData[currentQuestion].options[quizData[currentQuestion].answer];
+            }
+
+            currentQuestion++;
+
+            if (currentQuestion < quizData.length) {
+                loadQuestion();
+            } else {
+                // Exibir pontuação final
+                resultElement.innerText += ` Você completou o quiz! Sua pontuação final é ${score} de ${quizData.length}.`;
+                document.getElementById('submit').style.display = "none"; // Ocultar botão após finalizar o quiz
+            }
+        } else {
+            alert("Por favor, selecione uma resposta.");
+        }
+    });
+
+    loadQuestion(); // Carrega a primeira pergunta
+</script>
