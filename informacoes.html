@@ -13,6 +13,7 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="primeiros_socorros.html">Primeiros Socorros</a></li>
+                <li><a href="eventos.html">Agenda de Eventos</a></li>
             </ul>
         </nav>
     </header>
@@ -78,5 +79,19 @@
     <footer>
         <p>© 2024 Saúde Comunitária - UBS Alves Dias</p>
     </footer>
+    <script>
+        // Seleciona todos os links do menu de navegação
+        const navLinks = document.querySelectorAll("nav ul li a");
+    
+        // Adiciona um evento de clique a cada link
+        navLinks.forEach(link => {
+            link.addEventListener("click", function() {
+                // Remove a classe 'active' de todos os links
+                navLinks.forEach(link => link.classList.remove("active"));
+                // Adiciona a classe 'active' ao link clicado
+                this.classList.add("active");
+            });
+        });
+    </script>
 </body>
 </html>
