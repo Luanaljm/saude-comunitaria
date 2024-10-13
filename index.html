@@ -70,13 +70,14 @@
             <ul>
                 <li><a href="informacoes.html">Informações de Saúde</a></li> <!-- Link para Informações de Saúde -->
                 <li><a href="primeiros_socorros.html">Primeiros Socorros</a></li> <!-- Link para Primeiros Socorros -->
+                <li><a href="eventos.html">Agenda de Eventos</a></li> <!-- Link para Agenda de Eventos -->
             </ul>
         </nav>
     </header>
 
     <section>
-        <h2>Bem-vindo ao Sistema de Monitoramento de Saúde</h2>
-        <p>Nosso principal objetivo é proporcionar um acompanhamento eficaz da sua saúde. Criamos um espaço acolhedor onde você pode registrar seus sintomas de forma prática e intuitiva. Além disso, oferecemos informações valiosas sobre cuidados básicos de saúde, ajudando você a tomar decisões informadas para o seu bem-estar.</p>
+        <h2>Bem-vindo ao Sistema de Saúde Comunitária</h2>
+        <p>Este sistema tem como objetivo proporcionar um acompanhamento eficaz da sua saúde e bem-estar. Aqui, você encontrará informações valiosas sobre cuidados básicos de saúde e primeiros socorros, além de recursos para ajudá-lo a tomar decisões informadas. Criamos um espaço acolhedor e intuitivo, onde você pode acessar facilmente as informações necessárias para cuidar da sua saúde e da sua família. Além disso, você poderá conferir nossa Agenda de Eventos, que traz atividades e palestras sobre saúde na comunidade, como eventos dedicados à saúde da mulher, do homem e outras temáticas relevantes. Manteremos você informado sobre todas as nossas programações.</p>
         
         <!-- Adicione sua imagem aqui -->
         <img src="saude.jpg" alt="Cuidando da Saúde">
@@ -85,5 +86,19 @@
     <footer>
         <p>© 2024 Saúde Comunitária - UBS Alves Dias</p>
     </footer>
+    <script>
+        // Seleciona todos os links do menu de navegação
+        const navLinks = document.querySelectorAll("nav ul li a");
+    
+        // Adiciona um evento de clique a cada link
+        navLinks.forEach(link => {
+            link.addEventListener("click", function() {
+                // Remove a classe 'active' de todos os links
+                navLinks.forEach(link => link.classList.remove("active"));
+                // Adiciona a classe 'active' ao link clicado
+                this.classList.add("active");
+            });
+        });
+    </script>
 </body>
 </html>
