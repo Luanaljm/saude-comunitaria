@@ -36,32 +36,28 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        
-        .eventos h2 {
-            color: #5a9bd4; /* Cor do título da seção de eventos */
-        }
 
-        .calc-imc {
-            margin-top: 40px; /* Espaço acima da seção de calculadora de IMC */
+        .quiz {
+            margin-top: 40px; /* Espaço acima da seção de quiz */
             padding: 20px;
             background-color: #e0f7fa; /* Fundo claro para a calculadora */
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .calc-imc h2 {
+        .quiz h2 {
             color: #00796b; /* Cor do título da calculadora de IMC */
         }
 
-        .calc-imc input {
-            margin: 5px 0;
+        .quiz p {
+            margin: 10px 0;
         }
 
-        .calc-imc button {
+        .quiz button {
             margin-top: 10px;
         }
 
-        .calc-imc .result {
+        .quiz .result {
             margin-top: 10px;
             font-weight: bold;
         }
@@ -72,11 +68,11 @@
         <h1>Primeiros Socorros</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li> <!-- Adicionando o link da Home -->
+                <li><a href="index.html">Home</a></li>
                 <li><a href="informacoes.html">Informações de Saúde</a></li>
                 <li><a href="primeiros_socorros.html">Primeiros Socorros</a></li>
                 <li><a href="calculadora.html">Calculadora de IMC</a></li>
-                <li><a href="eventos.html">Agenda de Eventos</a></li> <!-- Adicionando link para a calculadora de IMC -->
+                <li><a href="eventos.html">Agenda de Eventos</a></li>
             </ul>
         </nav>
     </header>
@@ -147,13 +143,13 @@
         
     </section>
 
-    <section class="calc-imc">
-        <h2>Calculadora de IMC</h2>
-        <p>Para calcular seu IMC (Índice de Massa Corporal), insira seu peso (kg) e altura (m):</p>
-        <input type="number" id="peso" placeholder="Peso (kg)" required>
-        <input type="number" id="altura" placeholder="Altura (m)" step="0.01" required>
-        <button id="calcular">Calcular IMC</button>
-        <p class="result" id="resultadoIMC"></p>
+    <section class="quiz">
+        <h2>Quiz de Primeiros Socorros</h2>
+        <p>Teste seus conhecimentos sobre primeiros socorros respondendo às perguntas abaixo:</p>
+
+        <div id="perguntas"></div>
+        <button id="verificar">Verificar Respostas</button>
+        <p class="result" id="resultado"></p>
     </section>
 
     <footer>
@@ -161,32 +157,86 @@
     </footer>
 
     <script>
-        // Calculadora de IMC
-        document.getElementById('calcular').addEventListener('click', function() {
-            const peso = parseFloat(document.getElementById('peso').value);
-            const altura = parseFloat(document.getElementById('altura').value);
-            const resultadoIMC = document.getElementById('resultadoIMC');
-
-            if (peso > 0 && altura > 0) {
-                const imc = (peso / (altura * altura)).toFixed(2);
-                resultadoIMC.innerText = `Seu IMC é: ${imc}`;
-            } else {
-                resultadoIMC.innerText = 'Por favor, insira valores válidos.';
+        const perguntas = [
+            {
+                pergunta: "O que deve ser feito em caso de um pequeno corte?",
+                respostas: ["Lavar com água e sabão", "Aplicar gelo", "Ignorar"],
+                correta: 0
+            },
+            {
+                pergunta: "Como deve-se tratar uma queimadura leve?",
+                respostas: ["Aplicar gelo diretamente", "Resfriar com água corrente", "Fazer uma compressa quente"],
+                correta: 1
+            },
+            {
+                pergunta: "O que fazer em caso de torção?",
+                respostas: ["Movimentar a região lesionada", "Elevar e aplicar compressas frias", "Aplicar calor"],
+                correta: 1
+            },
+            {
+                pergunta: "Como controlar uma hemorragia intensa?",
+                respostas: ["Aplique pressão direta", "Colocar a pessoa em pé", "Aguarde até que pare sozinho"],
+                correta: 0
+            },
+            {
+                pergunta: "Qual a manobra para um engasgado?",
+                respostas: ["Aguarde até que consiga respirar", "Manobra de Heimlich", "Dar água"],
+                correta: 1
+            },
+            {
+                pergunta: "O que fazer se alguém desmaiar?",
+                respostas: ["Elevar as pernas", "Dar água", "Bater levemente"],
+                correta: 0
+            },
+            {
+                pergunta: "O que fazer em caso de choque elétrico?",
+                respostas: ["Desligar a fonte de energia", "Molhar a vítima", "Tocar na vítima imediatamente"],
+                correta: 0
+            },
+            {
+                pergunta: "Como tratar uma picada de inseto?",
+                respostas: ["Apenas ignorar", "Lavar e aplicar compressa fria", "Colocar gelo diretamente"],
+                correta: 1
+            },
+            {
+                pergunta: "O que fazer em caso de fratura?",
+                respostas: ["Imobilizar a área", "Movimentar normalmente", "Esperar que melhore sozinho"],
+                correta: 0
+            },
+            {
+                pergunta: "Qual a primeira ação em caso de parada cardíaca?",
+                respostas: ["Esperar ajuda chegar", "Iniciar a RCP", "Dar água"],
+                correta: 1
             }
-        });
+        ];
 
-        // Seleciona todos os links do menu de navegação
-        const navLinks = document.querySelectorAll("nav ul li a");
-    
-        // Adiciona um evento de clique a cada link
-        navLinks.forEach(link => {
-            link.addEventListener("click", function() {
-                // Remove a classe 'active' de todos os links
-                navLinks.forEach(link => link.classList.remove("active"));
-                // Adiciona a classe 'active' ao link clicado
-                this.classList.add("active");
+        function criarQuiz() {
+            const container = document.getElementById('perguntas');
+            perguntas.forEach((item, index) => {
+                const perguntaDiv = document.createElement('div');
+                perguntaDiv.innerHTML = `<p>${item.pergunta}</p>`;
+                item.respostas.forEach((resposta, i) => {
+                    perguntaDiv.innerHTML += `<label><input type="radio" name="pergunta${index}" value="${i}">${resposta}</label><br>`;
+                });
+                container.appendChild(perguntaDiv);
             });
-        });
+        }
 
+        function verificarRespostas() {
+            let acertos = 0;
+            perguntas.forEach((item, index) => {
+                const respostaSelecionada = document.querySelector(`input[name="pergunta${index}"]:checked`);
+                if (respostaSelecionada && parseInt(respostaSelecionada.value) === item.correta) {
+                    acertos++;
+                }
+            });
+            document.getElementById('resultado').innerText = `Você acertou ${acertos} de ${perguntas.length} perguntas!`;
+        }
+
+        document.getElementById('verificar').addEventListener('click', verificarRespostas);
+        criarQuiz();
+    </script>
+</body>
+</html>
 
 
