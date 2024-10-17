@@ -40,6 +40,31 @@
         .eventos h2 {
             color: #5a9bd4; /* Cor do título da seção de eventos */
         }
+
+        .calc-imc {
+            margin-top: 40px; /* Espaço acima da seção de calculadora de IMC */
+            padding: 20px;
+            background-color: #e0f7fa; /* Fundo claro para a calculadora */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .calc-imc h2 {
+            color: #00796b; /* Cor do título da calculadora de IMC */
+        }
+
+        .calc-imc input {
+            margin: 5px 0;
+        }
+
+        .calc-imc button {
+            margin-top: 10px;
+        }
+
+        .calc-imc .result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -47,9 +72,11 @@
         <h1>Primeiros Socorros</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Home</a></li> <!-- Adicionando o link da Home -->
                 <li><a href="informacoes.html">Informações de Saúde</a></li>
-                <li><a href="eventos.html">Agenda de Eventos</a></li> <!-- Link para a agenda de eventos -->
+                <li><a href="primeiros_socorros.html">Primeiros Socorros</a></li>
+                <li><a href="calculadora.html">Calculadora de IMC</a></li>
+                <li><a href="eventos.html">Agenda de Eventos</a></li> <!-- Adicionando link para a calculadora de IMC -->
             </ul>
         </nav>
     </header>
@@ -117,14 +144,37 @@
             <img src="cardiaco.jpg" alt="RCP em Parada Cardíaca" width="500" height="400">
             <p>Inicie a RCP imediatamente (30 compressões no peito seguidas de 2 ventilações) e ligue para o serviço de emergência. Continue a RCP até a chegada de ajuda.</p>
         </article>
-
         
+    </section>
+
+    <section class="calc-imc">
+        <h2>Calculadora de IMC</h2>
+        <p>Para calcular seu IMC (Índice de Massa Corporal), insira seu peso (kg) e altura (m):</p>
+        <input type="number" id="peso" placeholder="Peso (kg)" required>
+        <input type="number" id="altura" placeholder="Altura (m)" step="0.01" required>
+        <button id="calcular">Calcular IMC</button>
+        <p class="result" id="resultadoIMC"></p>
     </section>
 
     <footer>
         <p>© 2024 Saúde Comunitária - UBS Alves Dias</p>
     </footer>
+
     <script>
+        // Calculadora de IMC
+        document.getElementById('calcular').addEventListener('click', function() {
+            const peso = parseFloat(document.getElementById('peso').value);
+            const altura = parseFloat(document.getElementById('altura').value);
+            const resultadoIMC = document.getElementById('resultadoIMC');
+
+            if (peso > 0 && altura > 0) {
+                const imc = (peso / (altura * altura)).toFixed(2);
+                resultadoIMC.innerText = `Seu IMC é: ${imc}`;
+            } else {
+                resultadoIMC.innerText = 'Por favor, insira valores válidos.';
+            }
+        });
+
         // Seleciona todos os links do menu de navegação
         const navLinks = document.querySelectorAll("nav ul li a");
     
@@ -137,195 +187,6 @@
                 this.classList.add("active");
             });
         });
-    </script>
 
-</body>
-</html>
-<section>
-    <h2>Quiz de Primeiros Socorros</h2>
-    <div id="quiz">
-        <p id="question"></p>
-        <div id="options"></div>
-        <button id="submit">Enviar Resposta</button>
-        <div id="result" style="margin-top: 20px;"></div>
-    </div>
-</section>
 
-<script>
-    const quizData = [
-        {
-            question: "Qual é o primeiro passo a ser tomado em caso de um pequeno corte?",
-            options: [
-                "Lavar o ferimento com água e sabão",
-                "Aplique gelo diretamente no ferimento",
-                "Deixe o ferimento exposto",
-                "Coloque uma bandagem imediatamente"
-            ],
-            answer: 0 // índice da opção correta
-        },
-        {
-            question: "O que fazer em caso de queimaduras leves?",
-            options: [
-                "Colocar gelo na queimadura",
-                "Resfriar com água corrente por 10 minutos",
-                "Aplique pomada imediatamente",
-                "Cubra com papel toalha"
-            ],
-            answer: 1
-        },
-        {
-            question: "Qual é a manobra correta para ajudar alguém que está engasgado?",
-            options: [
-                "Bater nas costas",
-                "Fazer a manobra de Heimlich",
-                "Dar água",
-                "Esperar que a pessoa se acalme"
-            ],
-            answer: 1
-        },
-        {
-            question: "Qual é a ação imediata em caso de hemorragia intensa?",
-            options: [
-                "Aplique um curativo",
-                "Coloque a pessoa deitada",
-                "Aplique pressão direta no ferimento",
-                "Dê água para a vítima"
-            ],
-            answer: 2
-        },
-        {
-            question: "O que fazer se alguém desmaiar?",
-            options: [
-                "Dar um copo de água",
-                "Deitar a pessoa e elevar as pernas",
-                "Bater levemente nas bochechas",
-                "Deixar a pessoa sozinha até se recuperar"
-            ],
-            answer: 1
-        },
-        {
-            question: "Como deve ser tratada uma picada de inseto?",
-            options: [
-                "Lave a área com água e sabão",
-                "Aplique gelo diretamente",
-                "Dê um analgésico",
-                "Use um remédio caseiro"
-            ],
-            answer: 0
-        },
-        {
-            question: "Qual é a primeira coisa a se fazer em caso de choque elétrico?",
-            options: [
-                "Aproximar-se da vítima",
-                "Desligar a fonte de energia",
-                "Aplicar compressas frias",
-                "Dar água"
-            ],
-            answer: 1
-        },
-        {
-            question: "O que fazer em caso de torção?",
-            options: [
-                "Movimentar a área afetada",
-                "Aplique compressas quentes",
-                "Elevar a área afetada e aplicar gelo",
-                "Ignorar e esperar que passe"
-            ],
-            answer: 2
-        },
-        {
-            question: "Qual é a manobra de RCP?",
-            options: [
-                "30 compressões e 2 ventilações",
-                "20 compressões e 1 ventilação",
-                "5 compressões e 5 ventilações",
-                "Somente compressões"
-            ],
-            answer: 0
-        },
-        {
-            question: "Em caso de fratura, o que não deve ser feito?",
-            options: [
-                "Imobilizar a área afetada",
-                "Aplicar gelo",
-                "Mover a área fraturada",
-                "Chamar ajuda médica"
-            ],
-            answer: 2
-        },
-        {
-            question: "Qual é a melhor forma de tratar uma queimadura de terceiro grau?",
-            options: [
-                "Aplique gelo imediatamente",
-                "Cubra a queimadura com um pano limpo e seco",
-                "Use pomadas para queimadura",
-                "Deixe a queimadura exposta ao ar"
-            ],
-            answer: 1
-        },
-        {
-            question: "Como você deve agir em caso de uma parada cardíaca?",
-            options: [
-                "Aguarde a ajuda médica",
-                "Inicie a RCP e chame os serviços de emergência",
-                "Coloque a pessoa em posição lateral",
-                "Dê água à pessoa"
-            ],
-            answer: 1
-        }
-    ];
 
-    let currentQuestion = 0;
-    let score = 0;
-
-    function loadQuestion() {
-        const questionElement = document.getElementById('question');
-        const optionsElement = document.getElementById('options');
-        const resultElement = document.getElementById('result');
-        
-        resultElement.innerText = ""; // Limpar resultados anteriores
-        questionElement.innerText = quizData[currentQuestion].question;
-        optionsElement.innerHTML = "";
-
-        quizData[currentQuestion].options.forEach((option, index) => {
-            const optionElement = document.createElement('div');
-            optionElement.innerHTML = `
-                <input type="radio" name="option" id="option${index}" value="${index}">
-                <label for="option${index}">${option}</label>
-            `;
-            optionsElement.appendChild(optionElement);
-        });
-    }
-
-    document.getElementById('submit').addEventListener('click', () => {
-        const selectedOption = document.querySelector('input[name="option"]:checked');
-        const resultElement = document.getElementById('result');
-
-        if (selectedOption) {
-            const answer = parseInt(selectedOption.value);
-            const isCorrect = answer === quizData[currentQuestion].answer;
-
-            // Exibir feedback ao usuário
-            if (isCorrect) {
-                score++;
-                resultElement.innerText = "Correto!";
-            } else {
-                resultElement.innerText = "Incorreto. A resposta correta era: " + quizData[currentQuestion].options[quizData[currentQuestion].answer];
-            }
-
-            currentQuestion++;
-
-            if (currentQuestion < quizData.length) {
-                loadQuestion();
-            } else {
-                // Exibir pontuação final
-                resultElement.innerText += ` Você completou o quiz! Sua pontuação final é ${score} de ${quizData.length}.`;
-                document.getElementById('submit').style.display = "none"; // Ocultar botão após finalizar o quiz
-            }
-        } else {
-            alert("Por favor, selecione uma resposta.");
-        }
-    });
-
-    loadQuestion(); // Carrega a primeira pergunta
-</script>
