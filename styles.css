@@ -29,14 +29,14 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 0.5em; /* Diminuir o espaçamento entre os itens do menu */
+    margin: 0 0.3em; /* Diminuir o espaçamento entre os itens do menu */
 }
 
 nav ul li a {
     color: white; /* Cor do texto do link */
     text-decoration: none;
     font-weight: bold; /* Destacar os links */
-    font-size: 0.9em; /* Reduzir o tamanho da fonte do menu, se necessário */
+    font-size: 0.8em; /* Reduzir o tamanho da fonte do menu */
 }
 
 nav ul li a.calculadora,
