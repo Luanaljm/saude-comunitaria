@@ -68,9 +68,11 @@
         <h1>Sistema de Saúde Comunitário</h1>
         <nav>
             <ul>
-                <li><a href="informacoes.html">Informações de Saúde</a></li> <!-- Link para Informações de Saúde -->
-                <li><a href="primeiros_socorros.html">Primeiros Socorros</a></li> <!-- Link para Primeiros Socorros -->
-                <li><a href="eventos.html">Agenda de Eventos</a></li> <!-- Link para Agenda de Eventos -->
+                <li><a href="index.html">Home</a></li> <!-- Adicionando o link da Home -->
+                <li><a href="informacoes.html">Informações de Saúde</a></li>
+                <li><a href="primeiros_socorros.html">Primeiros Socorros</a></li>
+                <li><a href="calculadora.html">Calculadora de IMC</a></li>
+                <li><a href="eventos.html">Agenda de Eventos</a></li> <!-- Link para a calculadora de IMC -->
             </ul>
         </nav>
     </header>
@@ -89,7 +91,7 @@
     <script>
         // Seleciona todos os links do menu de navegação
         const navLinks = document.querySelectorAll("nav ul li a");
-    
+
         // Adiciona um evento de clique a cada link
         navLinks.forEach(link => {
             link.addEventListener("click", function() {
