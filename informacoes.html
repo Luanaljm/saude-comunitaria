@@ -5,10 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informações de Saúde - Monitoramento de Saúde</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos para o menu hambúrguer */
+        .menu-hamburguer {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            width: 30px;
+            height: 30px;
+        }
+
+        .menu-hamburguer div {
+            height: 3px;
+            background-color: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        /* Para telas pequenas */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none; /* Oculta o menu por padrão */
+                flex-direction: column; /* Muda para coluna */
+                position: absolute;
+                top: 50px; /* Distância do topo */
+                left: 0;
+                background-color: white;
+                width: 100%;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                display: flex; /* Exibe o menu quando ativo */
+            }
+
+            .menu-hamburguer {
+                display: flex; /* Exibe o ícone de menu hamburguer */
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Informações de Saúde</h1>
+        <div class="menu-hamburguer" id="menu-hamburguer">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li> <!-- Adicionando o link da Home -->
@@ -81,28 +130,22 @@
         <article>
             <h3>Calculadora de IMC</h3>
             <img src="imc.jpg" alt="Calculadora IMC" width="300" height="200">
-            <p>Calcule seu Índice de Massa Corporal (IMC) para avaliar sua saúde. O IMC é uma medida utilizada para classificar o peso em relação à altura. Para calcular, você pode usar a seguinte fórmula:</p>
-            <p><strong>IMC = Peso (kg) / (Altura (m) * Altura (m))</strong></p>
-            <p>Utilize a calculadora em nossa página dedicada a calcular o IMC e obter recomendações personalizadas.</p>
-            <a href="calculadora.html">Acesse a Calculadora de IMC</a> <!-- Link para a página da calculadora de IMC -->
+            <p>Calcule seu Índice de Massa Corporal (IMC) para avaliar sua saúde. O IMC é uma medida que relaciona seu peso e altura. A fórmula para calcular o IMC é: IMC = peso (kg) / (altura (m) * altura (m)). Um IMC saudável está geralmente entre 18,5 e 24,9. Consulte um profissional de saúde para uma análise mais detalhada.</p>
+            <a href="calculadora.html">Calcule seu IMC aqui!</a>
         </article>
     </section>
 
     <footer>
-        <p>© 2024 Saúde Comunitária - UBS Alves Dias</p>
+        <p>&copy; 2024 Monitoramento de Saúde. Todos os direitos reservados.</p>
     </footer>
+
     <script>
-        // Seleciona todos os links do menu de navegação
-        const navLinks = document.querySelectorAll("nav ul li a");
-    
-        // Adiciona um evento de clique a cada link
-        navLinks.forEach(link => {
-            link.addEventListener("click", function() {
-                // Remove a classe 'active' de todos os links
-                navLinks.forEach(link => link.classList.remove("active"));
-                // Adiciona a classe 'active' ao link clicado
-                this.classList.add("active");
-            });
+        // Script para o menu hamburguer
+        const menuHamburguer = document.getElementById('menu-hamburguer');
+        const navUl = document.querySelector('nav ul');
+
+        menuHamburguer.addEventListener('click', () => {
+            navUl.classList.toggle('active');
         });
     </script>
 </body>
