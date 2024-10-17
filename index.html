@@ -7,130 +7,56 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
+            background-color: #e0f7fa; /* Cor de fundo azul clara */
+            color: #01579b; /* Cor do texto em azul escuro */
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4; /* Cor de fundo neutra */
             margin: 0;
             padding: 0;
-            padding-bottom: 60px; /* Espaço para o rodapé */
         }
 
         header {
-            background-color: #5a9bd4; /* Azul suave */
-            color: white;
+            background-color: #0288d1; /* Azul mais escuro no cabeçalho */
+            padding: 20px;
             text-align: center;
-            padding: 1.5em 0; /* Aumentar o padding para mais espaço */
-        }
-
-        h1 {
-            font-size: 2.5em; /* Tamanho maior para o título */
-            margin: 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidade */
-            color: #2c3e50; /* Cor do texto mais escura para maior contraste */
-        }
-
-        .menu-toggle {
-            display: none; /* Esconder o botão de menu por padrão */
-            font-size: 30px; /* Tamanho do ícone do menu */
-            cursor: pointer; /* Muda o cursor para indicar que é clicável */
-            color: white; /* Cor do ícone */
-        }
-
-        nav {
-            display: flex;
-            justify-content: center; /* Centraliza o menu */
-            align-items: center; /* Centraliza verticalmente */
-            flex-wrap: wrap; /* Permite que o menu se ajuste em várias linhas */
+            color: white;
         }
 
         nav ul {
-            list-style-type: none;
-            margin: 0;
+            list-style: none;
             padding: 0;
-            display: flex;
-            flex-direction: row; /* Exibe os itens em linha */
-            transition: max-height 0.3s ease; /* Animação suave ao abrir/fechar */
-            max-height: 100px; /* Altura máxima para o menu */
-            overflow: hidden; /* Esconde o excesso */
         }
 
         nav ul li {
-            margin: 0 1.5em; /* Aumentar o espaçamento entre os itens do menu */
+            display: inline;
+            margin-right: 15px;
         }
 
         nav ul li a {
-            color: white; /* Cor do texto do link */
+            color: white;
             text-decoration: none;
-            font-weight: bold; /* Destacar os links */
+            font-weight: bold;
         }
 
-        nav ul li a.calculadora,
-        nav ul li a.eventos {
-            color: #5a9bd4; /* Azul suave para a calculadora e eventos */
-        }
-
-        nav ul li a:hover {
-            color: #ffeb3b; /* Altera a cor ao passar o mouse */
-        }
-
-        /* Estilo para dispositivos móveis */
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column; /* Altera a direção dos itens para coluna */
-                display: none; /* Esconde o menu por padrão */
-            }
-
-            nav ul.show {
-                display: flex; /* Exibe o menu quando a classe 'show' é adicionada */
-            }
-
-            .menu-toggle {
-                display: block; /* Exibe o botão de menu em dispositivos móveis */
-            }
+        nav ul li a.active {
+            text-decoration: underline; /* Estilo para o link ativo */
         }
 
         section {
-            margin: 2em auto;
-            width: 80%;
-            background-color: white; /* Fundo branco para o conteúdo */
-            padding: 2em; /* Aumentar o padding */
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+            padding: 20px;
         }
 
         h2 {
-            font-size: 2em; /* Tamanho maior para os subtítulos */
-            margin-bottom: 1em; /* Espaço abaixo do subtítulo */
-            color: #34495e; /* Cor do texto mais escura */
-            border-bottom: 3px solid #5a9bd4; /* Linha embaixo para destaque */
-            padding-bottom: 0.5em; /* Espaço entre o texto e a linha */
-            text-transform: uppercase; /* Transformar texto em maiúsculas */
-            letter-spacing: 1px; /* Espaçamento entre letras */
-        }
-
-        h3 {
-            font-size: 1.7em; /* Tamanho maior para os subtítulos das seções */
-            margin-bottom: 0.5em; /* Espaço abaixo do subtítulo */
-            color: #2980b9; /* Azul mais forte para os subtítulos */
-            font-weight: 700; /* Negrito */
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra para dar um leve destaque */
-        }
-
-        p {
-            font-size: 1em; /* Tamanho padrão do texto */
-            line-height: 1.6; /* Aumentar o espaçamento entre linhas para melhor legibilidade */
-            color: #666; /* Cor do texto */
-            margin-bottom: 1.5em; /* Espaço abaixo dos parágrafos */
+            color: #0277bd; /* Azul escuro para os títulos */
         }
 
         footer {
+            background-color: #0288d1;
             text-align: center;
-            padding: 1em 0;
-            background-color: #5a9bd4; /* Azul suave */
+            padding: 10px;
             color: white;
             position: fixed;
             width: 100%;
             bottom: 0;
-            left: 0; /* Garantir que fique alinhado à esquerda */
         }
 
         img {
@@ -144,14 +70,13 @@
 <body>
     <header>
         <h1>Sistema de Saúde Comunitário</h1>
-        <span class="menu-toggle" id="menu-toggle">&#9776;</span> <!-- Botão de menu hamburguer -->
         <nav>
-            <ul id="nav-list">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="informacoes.html">Informações de Saúde</a></li>
-                <li><a href="primeiros_socorros.html">Primeiros Socorros</a></li>
-                <li><a href="calculadora.html">Calculadora de IMC</a></li>
-                <li><a href="eventos.html">Agenda de Eventos</a></li>
+            <ul>
+                <li><a href="index.html">Home</a></li> <!-- Link para Home -->
+                <li><a href="informacoes.html">Informações de Saúde</a></li> <!-- Link para Informações de Saúde -->
+                <li><a href="primeiros_socorros.html">Primeiros Socorros</a></li> <!-- Link para Primeiros Socorros -->
+                <li><a href="calculadora.html">Calculadora de IMC</a></li> <!-- Link para a calculadora de IMC -->
+                <li><a href="eventos.html">Agenda de Eventos</a></li> <!-- Link para Agenda de Eventos -->
             </ul>
         </nav>
     </header>
@@ -159,7 +84,7 @@
     <section>
         <h2>Bem-vindo ao Sistema de Saúde Comunitária</h2>
         <p>Este sistema tem como objetivo proporcionar um acompanhamento eficaz da sua saúde e bem-estar. Aqui, você encontrará informações valiosas sobre cuidados básicos de saúde e primeiros socorros, além de recursos para ajudá-lo a tomar decisões informadas. Criamos um espaço acolhedor e intuitivo, onde você pode acessar facilmente as informações necessárias para cuidar da sua saúde e da sua família. Além disso, você poderá conferir nossa Agenda de Eventos, que traz atividades e palestras sobre saúde na comunidade, como eventos dedicados à saúde da mulher, do homem e outras temáticas relevantes. Manteremos você informado sobre todas as nossas programações.</p>
-        
+
         <!-- Adicione sua imagem aqui -->
         <img src="saude.jpg" alt="Cuidando da Saúde">
     </section>
@@ -167,12 +92,10 @@
     <footer>
         <p>© 2024 Saúde Comunitária - UBS Alves Dias</p>
     </footer>
-
+    
     <script>
         // Seleciona todos os links do menu de navegação
         const navLinks = document.querySelectorAll("nav ul li a");
-        const navList = document.getElementById("nav-list");
-        const menuToggle = document.getElementById("menu-toggle");
 
         // Adiciona um evento de clique a cada link
         navLinks.forEach(link => {
@@ -183,12 +106,6 @@
                 this.classList.add("active");
             });
         });
-
-        // Adiciona evento ao botão de menu hamburguer
-        menuToggle.addEventListener("click", function() {
-            navList.classList.toggle("show"); // Alterna a classe 'show' para mostrar/esconder o menu
-        });
     </script>
 </body>
 </html>
-
