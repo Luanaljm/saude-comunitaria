@@ -6,46 +6,38 @@
     <title>Informações de Saúde - Monitoramento de Saúde</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Estilos para o menu hambúrguer */
-        .menu-hamburguer {
+        /* Estilo para o botão hamburguer */
+        .hamburger {
             display: none;
-            cursor: pointer;
             flex-direction: column;
+            cursor: pointer;
+        }
+
+        .line {
             width: 30px;
-            height: 30px;
-        }
-
-        .menu-hamburguer div {
             height: 3px;
-            background-color: #333;
+            background-color: black;
             margin: 3px 0;
-            transition: 0.3s;
         }
 
-        nav ul {
-            display: flex;
-            list-style-type: none;
-        }
-
-        /* Para telas pequenas */
         @media (max-width: 768px) {
             nav ul {
-                display: none; /* Oculta o menu por padrão */
-                flex-direction: column; /* Muda para coluna */
-                position: absolute;
-                top: 50px; /* Distância do topo */
+                display: none; /* Esconde o menu padrão */
+                flex-direction: column; /* Altera a direção do menu para coluna */
+                position: absolute; /* Para sobrepor o conteúdo */
+                top: 60px; /* Ajusta a posição do menu */
                 left: 0;
-                background-color: white;
-                width: 100%;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                background-color: white; /* Cor de fundo do menu */
+                width: 100%; /* Largura total */
+                padding: 10px 0; /* Espaçamento interno */
             }
 
             nav ul.active {
-                display: flex; /* Exibe o menu quando ativo */
+                display: flex; /* Mostra o menu quando ativo */
             }
 
-            .menu-hamburguer {
-                display: flex; /* Exibe o ícone de menu hamburguer */
+            .hamburger {
+                display: flex; /* Mostra o botão hamburguer em telas menores */
             }
         }
     </style>
@@ -53,10 +45,10 @@
 <body>
     <header>
         <h1>Informações de Saúde</h1>
-        <div class="menu-hamburguer" id="menu-hamburguer">
-            <div></div>
-            <div></div>
-            <div></div>
+        <div class="hamburger" id="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
         </div>
         <nav>
             <ul>
@@ -130,23 +122,24 @@
         <article>
             <h3>Calculadora de IMC</h3>
             <img src="imc.jpg" alt="Calculadora IMC" width="300" height="200">
-            <p>Calcule seu Índice de Massa Corporal (IMC) para avaliar sua saúde. O IMC é uma medida que relaciona seu peso e altura. A fórmula para calcular o IMC é: IMC = peso (kg) / (altura (m) * altura (m)). Um IMC saudável está geralmente entre 18,5 e 24,9. Consulte um profissional de saúde para uma análise mais detalhada.</p>
-            <a href="calculadora.html">Calcule seu IMC aqui!</a>
+            <p>Calcule seu Índice de Massa Corporal (IMC) para avaliar sua saúde. O IMC é uma medida utilizada para classificar o peso em relação à altura. Para calcular, você pode usar a seguinte fórmula:</p>
+            <p><strong>IMC = Peso (kg) / (Altura (m) * Altura (m))</strong></p>
+            <p>Para acessar a calculadora de IMC, clique no link: <a href="calculadora.html">Calculadora de IMC</a></p>
         </article>
     </section>
 
     <footer>
-        <p>&copy; 2024 Monitoramento de Saúde. Todos os direitos reservados.</p>
+        <p>&copy; 2024 Informações de Saúde. Todos os direitos reservados.</p>
     </footer>
 
     <script>
-        // Script para o menu hamburguer
-        const menuHamburguer = document.getElementById('menu-hamburguer');
-        const navUl = document.querySelector('nav ul');
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.querySelector('nav ul');
 
-        menuHamburguer.addEventListener('click', () => {
-            navUl.classList.toggle('active');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active'); // Adiciona/remover a classe active
         });
     </script>
 </body>
 </html>
+
