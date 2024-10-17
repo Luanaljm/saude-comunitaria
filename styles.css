@@ -10,7 +10,7 @@ header {
     background-color: #5a9bd4; /* Azul suave */
     color: white;
     text-align: center;
-    padding: 1.5em 0; /* Aumentar o padding para mais espaço */
+    padding: 1em 0; /* Reduzido de 1.5em para 1em */
 }
 
 h1 {
@@ -29,7 +29,7 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 1.5em; /* Aumentar o espaçamento entre os itens do menu */
+    margin: 0 1em; /* Ajustado de 1.5em para 1em para diminuir o espaçamento */
 }
 
 nav ul li a {
@@ -55,27 +55,27 @@ nav ul li a.active {
 }
 
 section {
-    margin: 2em auto;
-    width: 80%;
+    margin: 1.5em auto; /* Ajustado de 2em para 1.5em para aproximar a seção */
+    width: 90%; /* Ajustado de 80% para 90% para maior uso de espaço */
     background-color: white; /* Fundo branco para o conteúdo */
-    padding: 2em; /* Aumentar o padding */
+    padding: 1.5em; /* Ajustado de 2em para 1.5em */
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
 }
 
 h2 {
     font-size: 2em; /* Tamanho maior para os subtítulos */
-    margin-bottom: 1em; /* Espaço abaixo do subtítulo */
+    margin-bottom: 0.5em; /* Ajustado de 1em para 0.5em */
     color: #34495e; /* Cor do texto mais escura */
     border-bottom: 3px solid #5a9bd4; /* Linha embaixo para destaque */
-    padding-bottom: 0.5em; /* Espaço entre o texto e a linha */
+    padding-bottom: 0.5em; /* Mantido */
     text-transform: uppercase; /* Transformar texto em maiúsculas */
     letter-spacing: 1px; /* Espaçamento entre letras */
 }
 
 h3 {
     font-size: 1.7em; /* Tamanho maior para os subtítulos das seções */
-    margin-bottom: 0.5em; /* Espaço abaixo do subtítulo */
+    margin-bottom: 0.5em; /* Mantido */
     color: #2980b9; /* Azul mais forte para os subtítulos */
     font-weight: 700; /* Negrito */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra para dar um leve destaque */
@@ -85,7 +85,7 @@ p {
     font-size: 1em; /* Tamanho padrão do texto */
     line-height: 1.6; /* Aumentar o espaçamento entre linhas para melhor legibilidade */
     color: #666; /* Cor do texto */
-    margin-bottom: 1.5em; /* Espaço abaixo dos parágrafos */
+    margin-bottom: 1em; /* Ajustado de 1.5em para 1em */
 }
 
 footer {
