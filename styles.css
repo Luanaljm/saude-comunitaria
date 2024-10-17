@@ -38,6 +38,22 @@ nav ul li a {
     font-weight: bold; /* Destacar os links */
 }
 
+nav ul li a.calculadora,
+nav ul li a.eventos {
+    color: #5a9bd4; /* Azul suave para a calculadora e eventos */
+}
+
+nav ul li a.calculadora:hover,
+nav ul li a.eventos:hover {
+    color: #ffeb3b; /* Altera a cor ao passar o mouse */
+}
+
+nav ul li a.active {
+    text-decoration: underline; /* Adiciona um sublinhado */
+    color: #ffeb3b; /* Altera a cor do texto da aba ativa */
+    font-weight: bold; /* Deixa o texto mais grosso */
+}
+
 section {
     margin: 2em auto;
     width: 80%;
