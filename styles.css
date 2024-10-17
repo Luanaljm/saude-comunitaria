@@ -20,23 +20,29 @@ h1 {
     color: #2c3e50; /* Cor do texto mais escura para maior contraste */
 }
 
+nav {
+    overflow: hidden; /* Garantir que o menu não saia da tela */
+}
+
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; /* Permitir que os itens se movam para a próxima linha se não houver espaço suficiente */
 }
 
 nav ul li {
-    margin: 0 0.3em; /* Diminuir o espaçamento entre os itens do menu */
+    margin: 0 1em; /* Diminuir o espaçamento entre os itens do menu */
 }
 
 nav ul li a {
     color: white; /* Cor do texto do link */
     text-decoration: none;
     font-weight: bold; /* Destacar os links */
-    font-size: 0.8em; /* Reduzir o tamanho da fonte do menu */
+    font-size: 1.1em; /* Aumentar o tamanho da fonte do menu */
+    padding: 0.5em 1.2em; /* Adicionar padding para melhorar a usabilidade */
 }
 
 nav ul li a.calculadora,
@@ -75,7 +81,7 @@ h2 {
 }
 
 h3 {
-    font-size: 1.7em; /* Tamanho maior para os subtítulos das seções */
+    font-size: 1.8em; /* Tamanho maior para os subtítulos das seções */
     margin-bottom: 0.5em; /* Espaço abaixo do subtítulo */
     color: #2980b9; /* Azul mais forte para os subtítulos */
     font-weight: 700; /* Negrito */
@@ -83,7 +89,7 @@ h3 {
 }
 
 p {
-    font-size: 1em; /* Tamanho padrão do texto */
+    font-size: 1.1em; /* Aumentar o tamanho padrão do texto */
     line-height: 1.6; /* Aumentar o espaçamento entre linhas para melhor legibilidade */
     color: #666; /* Cor do texto */
     margin-bottom: 1.5em; /* Espaço abaixo dos parágrafos */
@@ -98,4 +104,28 @@ footer {
     width: 100%;
     bottom: 0;
     left: 0; /* Garantir que fique alinhado à esquerda */
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column; /* Exibir itens do menu em coluna em telas menores */
+        align-items: center; /* Centralizar os itens */
+    }
+
+    nav ul li {
+        margin: 0.5em 0; /* Aumentar o espaçamento vertical */
+    }
+
+    h1 {
+        font-size: 2.2em; /* Diminuir o tamanho do título em telas pequenas */
+    }
+
+    section {
+        width: 90%; /* Aumentar a largura da seção em telas pequenas */
+    }
+
+    nav ul li a {
+        font-size: 1.1em; /* Manter o tamanho da fonte do menu em dispositivos móveis */
+    }
 }
